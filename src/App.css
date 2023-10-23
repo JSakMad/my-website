@@ -1,0 +1,281 @@
+.App-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+  background-color: rgb(66, 60, 228);
+}
+
+
+.App-header nav span {
+  color: #DAA520; /* Add this line */
+}
+
+.App-header h1 {
+  position: absolute;
+  left: 20px;
+  color: #DAA520;
+}
+
+.App-header nav {
+  display: flex;
+  align-items: center; /* This line vertically aligns the links */
+}
+
+.App-header nav a {
+  margin-right: 20px;
+  color: #DAA520;
+  text-decoration: none; /* Add this line */
+}
+
+.App-header nav .contact {
+  position: absolute;
+  right: 0;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #DAA520;
+  color: rgb(66, 60, 228);
+  text-decoration: none; /* Add this line */
+}
+
+.App-header nav .contact.active {
+  background-color: #f0f0f0; /* change this to the highlight color you want */
+}
+
+.App-header nav .contact:hover {
+  color: black; /*ONLY AFFECTS CONTACT WHEN HOVERING*/
+}
+
+#about {
+  padding-top: 43px; /* Adjust this value as needed */
+}
+
+.about-section {
+  padding: 20px;
+  height: 500px;
+  background-image: url('Pittsburgh.jpg');
+  background-size: cover;
+  background-position: center; /* Add this line */
+  color: white;
+}
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 200px; /* Adjust this value as needed */
+  background-color: rgb(66, 60, 228); /* This line adds a background box to the dropdown menu */
+  box-shadow: 0px 8px 16px 0px #DAA520;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.interests-section {
+  padding: 20px;
+  background-color: black; /* Add this line */
+  color: white; /* Add this line */
+}
+
+.skills-section {
+  padding: 20px;
+  background-color: rgb(66, 60, 228); /* Add this line */
+  color: #DAA520; /* Add this line */
+}
+
+.research-section {
+  padding: 20px;
+  background-color: black; /* Add this line */
+  color: white; /* Add this line */
+}
+
+.contact-section {
+  padding: 20px;
+  height: 650px;
+  background-image: url('world.svg');
+  background-size: cover;
+  background-color: rgb(66, 60, 228);
+  color: rgb(66, 60, 228);
+  font-size: 20px; /* Adjust this value as needed */
+  text-align: center; /* This will center the text */
+}
+
+.text-box {
+  background-color: #DAA520;
+  border-radius: 25px;
+  padding: 3px 10px;
+  width: 50%; /* Adjust this value as needed */
+  margin: auto;
+}
+
+
+.ai-emotion-detector-section {
+  padding: 20px;
+  background-color: black; /* Add this line */
+  color: white; /* Add this line */
+}
+
+.placeholder-section {
+  padding: 20px;
+  background-color: black; /* Add this line */
+  color: white; /* Add this line */
+}
+
+a.after-linkedin {
+  color: rgb(66, 60, 228); /* Set the text color to white */
+  text-decoration: none; /* Remove the underline */
+}
+
+a.after-github {
+  color: rgb(66, 60, 228); /* Set the text color to white */
+  text-decoration: none; /* Remove the underline */
+}
+
+.logo-bar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: white; /* Change this to the color you want */
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #f3f3f3;
+}
+
+.progress-bar-fill {
+  height: 20px;
+  background-color: #DAA520;
+}
+
+.logo-bar img {
+  height: 100px; /* Change this to the size you want */
+}
+
+nav a:hover {
+  color: #f3f3f3; /* Change the color to black when hovering */
+}
+
+nav a:hover, .contact:hover {
+  color: #f3f3f3; /* Change the color to black when hovering */
+}
+
+.headshot-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Adjust as needed */
+  width: 200px; /* Adjust as needed */
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.headshot-photo img {
+  width: 100%;
+  height: auto;
+}
+
+.icon-background {
+  background-color: rgb(66, 60, 228);
+  color: #DAA520;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.icon-background:hover {
+  background-color: white;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.contact-form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; /* add some space above the form boxes */
+  align-items: flex-start; /* align the left and right sides to the top */
+}
+
+.left-side, .right-side {
+  flex: 1;
+  margin-right: 5px; /* add some space between the left and right sides */
+}
+
+.contact-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-side, .right-side {
+  flex: 1;
+}
+
+input, textarea {
+  width: 60%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* rounded corners */
+  box-sizing: border-box;
+  margin-bottom: 10px; /* add some space between the fields */
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgb(66, 60, 228);
+}
+
+.right-side textarea {
+  height: calc(3 * (1.5em + 21.8px) + 2 * 10px); /* make the textarea the same height as the three input fields, accounting for the margin */
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center; /* center the submit button horizontally */
+}
+
+input[type="submit"] {
+  padding: 6px 12px; /* reduce the padding */
+  font-size: 14px; /* reduce the font size */
+  margin-top: 0px; /* add some space above the submit button */
+  width: 150px; /* set a specific width for the button */
+  background-color: #DAA520; /* change the background color to black */
+  color: rgb(66, 60, 228); /* change the text color to white for better contrast */
+}
+
+.left-side {
+  flex: 1;
+  margin-right: -350px; /* reduce the space between the left and right sides */
+}
+
+.right-side {
+  flex: 1;
+}
+
+/* CSS */
+nav a.active {
+  color: #f0f0f0; /* change this to the highlight color you want */
+}
