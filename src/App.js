@@ -68,8 +68,6 @@ function App() {
         <Research />
       </section>
       <section id="skills">
-        {/* Your Skills component */}
-        <Skills />
         {/* Your SkillsBar component */}
         <SkillsBar />
       </section>
@@ -89,37 +87,42 @@ function App() {
   );
 }
 
-function LogoBar() { 
+function LogoBar() {
   return (
     <div className="logo-bar">
-      <img src="/Mtlebanonlogo.png" alt="High School" />
-      <img src="/Pittlogo.png" alt="University of Pittsburgh" />
-      <img src="/SHARPlogo.png" alt="SHARP" />
+      <img src={process.env.PUBLIC_URL + "/Mtlebanonlogo.png"} alt="High School" />
+      <img src={process.env.PUBLIC_URL + "/Pittlogo.png"} alt="University of Pittsburgh" />
+      <img src={process.env.PUBLIC_URL + "/SHARPlogo.png"} alt="SHARP" />
     </div>
   );
 }
 
 function SkillsBar() { 
   return (
-    <div className="logo-bar">
-      <img src="/Pythonlogo.png" alt="Python" />
-      <img src="/Javalogo.png" alt="Java" />
-      <img src="/SQLlogo.svg" alt="SQL" />
-      <img src="/C++logo.png" alt="C++" />
-      <img src="/CSSlogo.png" alt="CSS" />
-      <img src="/Javascriptlogo.svg" alt="Javascript" />
-      <img src="/Onshapelogo.png" alt="Onshape" />
-      <img src="/Autodesklogo.png" alt="Autodesk" />
-      <img src="/REACTlogo.png" alt="REACT" />
+    <div className="skills-bar">
+      <h2 className="center-text">Skills</h2>
+      <div className="logo-bar">
+        <img src={process.env.PUBLIC_URL + "/Pythonlogo.png"} alt="Python" />
+        <img src={process.env.PUBLIC_URL + "/Javalogo.png"} alt="Java" />
+        <img src={process.env.PUBLIC_URL + "/SQLlogo.svg"} alt="SQL" />
+        <img src={process.env.PUBLIC_URL + "/C++logo.png"} alt="C++" />
+        <img src={process.env.PUBLIC_URL + "/CSSlogo.png"} alt="CSS" />
+        <img src={process.env.PUBLIC_URL + "/Javascriptlogo.svg"} alt="Javascript" />
+        <img src={process.env.PUBLIC_URL + "/Onshapelogo.png"} alt="Onshape" />
+        <img src={process.env.PUBLIC_URL + "/Autodesklogo.png"} alt="Autodesk" />
+        <img src={process.env.PUBLIC_URL + "/REACTlogo.png"} alt="REACT" />
+      </div>
     </div>
   );
 }
+
+
 
 function About() {
   return (
     <section id="about" className="about-section" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '67vh' }}>
       <div className="headshot-photo" style={{ backgroundColor: 'rgb(66, 60, 228)', borderRadius: '50%', width: '200px', height: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px' }}>
-        <img src='/Circleheadshot.jpg' alt='Your Headshot' style={{ maxWidth: '100%', maxHeight: '100%', borderRadius: '50%' }} />
+        <img src= {process.env.PUBLIC_URL + '/Circleheadshot.jpg'} alt='Your Headshot' style={{ maxWidth: '100%', maxHeight: '100%', borderRadius: '50%' }} />
       </div>
       <h2 style={{ color: 'rgb(66, 60, 228)', textAlign: 'center', backgroundColor: '#DAA520', borderRadius: '25px', padding: '10px' }}>Joshua Sakolsky-Madaras</h2>
       <div style={{ display: 'flex', justifyContent: 'space-around', width: '200px' }}>
@@ -157,13 +160,13 @@ function Research() {
         </div>
         <div>
           <div id="carousel" style={{ width: '800px', height: '450px', overflow: 'hidden', padding: '20px' }}>
-            <img src="/Statemap2019.png" alt="Statemap2019" style={{ width: '100%', height: '100%' }}/>
-            <img src="/Statemap2021.png" alt="Statemap2021" style={{ width: '100%', height: '100%' }}/>
-            <img src="/Statemap2023.png" alt="Statemap2023" style={{ width: '100%', height: '100%' }}/>
-            <img src="/Zipcodemap2019.png" alt="Zipcodemap2019" style={{ width: '100%', height: '100%' }}/>
-            <img src="/Zipcodemap2021.png" alt="Zipcodemap2021" style={{ width: '100%', height: '100%' }}/>
-            <img src="/Zipcodemap2023.png" alt="Zipcodemap2023" style={{ width: '100%', height: '100%' }}/>
-            <img src="/Month to Month Cumulative Price 2019-2023.png" alt="Month to Month Cumulative Price 2019-2023" style={{ width: '100%', height: '100%' }}/>
+          <img src={process.env.PUBLIC_URL + "/Statemap2019.png"} alt="Statemap2019" style={{ width: '100%', height: '100%' }}/>
+<img src={process.env.PUBLIC_URL + "/Statemap2021.png"} alt="Statemap2021" style={{ width: '100%', height: '100%' }}/>
+<img src={process.env.PUBLIC_URL + "/Statemap2023.png"} alt="Statemap2023" style={{ width: '100%', height: '100%' }}/>
+<img src={process.env.PUBLIC_URL + "/Zipcodemap2019.png"} alt="Zipcodemap2019" style={{ width: '100%', height: '100%' }}/>
+<img src={process.env.PUBLIC_URL + "/Zipcodemap2021.png"} alt="Zipcodemap2021" style={{ width: '100%', height: '100%' }}/>
+<img src={process.env.PUBLIC_URL + "/Zipcodemap2023.png"} alt="Zipcodemap2023" style={{ width: '100%', height: '100%' }}/>
+<img src={process.env.PUBLIC_URL + "/Month%20to%20Month%20Cumulative%20Price%202019-2023.png"} alt="Month to Month Cumulative Price 2019-2023" style={{ width: '100%', height: '100%' }}/>
           </div>
         </div>
       </div>
@@ -183,35 +186,6 @@ window.onload = function() {
   }, 2000); // Change image every 2 seconds
 };
 
-function Skills() {
-  const skills = [
-    { name: 'Python- Best language, used in projects and research', level: '85%' },
-    { name: 'Java- Used in projects and class', level: '70%' },
-    { name: 'SQL- Used in research', level: '60%' },
-    { name: 'C++- Currently learning', level: '50%' },
-    { name: 'CSS- Used in this website, currently learning', level: '60%' },
-    { name: 'JavaScript- Used in this website, currently learning', level: '60%' },
-    { name: 'CAD (Onshape and Autocad)- Used in robotics team', level: '80%' },
-    { name: 'React- Used in this website, currently learning', level: '55%' },
-  ];
-
-  return (
-    <section id="skills" className="skills-section">
-      <h2>Skills</h2>
-      {skills.map((skill, index) => (
-        <div key={index}>
-          <p>{skill.name}</p>
-          <div className="progress-bar">
-            <div 
-              className="progress-bar-fill" 
-              style={{width: skill.level}}
-            ></div>
-          </div>
-        </div>
-      ))}
-    </section>
-  );
-}
 
 class Contact extends React.Component {
   constructor(props) {
@@ -306,7 +280,7 @@ function AIEmotionDetector() {
           <p></p>
         </div>
         {/* Add your image here */}
-        <img src="/MachineLearningimage.jpg" alt="AI Generated Graphic" style={{ width: '25%', height: 'auto' }} />
+        <img src={process.env.PUBLIC_URL + "/MachineLearningimage.jpg"} alt="AI Generated Graphic" style={{ width: '25%', height: 'auto' }} />
       </div>
       <hr style={{ borderColor: 'rgb(66, 60, 228)', width: '100%', marginTop: '20px', marginBottom: '-20px'  }} /> {/* Add this line */}
     </section>
@@ -326,7 +300,7 @@ function Placeholder() {
           <p>Yes this website is colored off of Pitt's colors but I will update them if I do transfer Universities or to a company's after I graduate.</p>
         </div>
         {/* Add your image here */}
-        <img src="/NEWWebsiteimage.jpg" alt="AI Generated Graphic" style={{ width: '25%', height: 'auto' }} />
+        <img src={process.env.PUBLIC_URL+ "/NEWWebsiteimage.jpg"} alt="AI Generated Graphic" style={{ width: '25%', height: 'auto' }} />
       </div>
     </section>
   );
@@ -337,32 +311,24 @@ function Introduction() {
     <div style={{ display: 'flex', backgroundColor: '#f0f0f0', color: 'black' }}>
       <section id="interests" className="interests-section" style={{ maxWidth: '800px', backgroundColor: '#f0f0f0', color: 'black', padding: '20px' }}>
         <h2 style={{ margin: 0, padding: 0, marginBottom: '20px' }}>About Me</h2>
-        <p>University of Pittsburgh '26, BS Computer Science, Researcher, and Aspiring Software Engineer</p>
-        <p>I am an undergraduate college student from Pittsburgh, Pennsylvania. My academic journey is enriched by an Undergraduate Research project, the details of which will be published on this website soon. In addition to my research, I have been working on personal projects in several different languages. As I continue to grow and learn, I am actively seeking internships related to software engineering, preferably paid ones.</p>
-        <p>My future plans are to complete undergraduate and probably transfer to another institution such as Purdue or Georgia Tech in the process.  I plan to become a software engineer out of undergraduate and then attend graduate school, most likely for a PhD.</p>
+        <p>University of Pittsburgh 2027, BS Computer Science, Researcher, and Aspiring Software Engineer</p>
+        <p>I am an undergraduate college student from Pittsburgh, Pennsylvania. My academic journey is enriched by Undergraduate Research projects and club activites.  In addition to my research and clubs, I have been working on personal projects in several different programming languages. As I continue to grow and learn, I am actively seeking internships related to software engineering, preferably paid ones.</p>
+        <p>My future plans are to complete my undergraduate degree and then becoming a software engineer.  I am planning to attend graduate school, most likely for a PhD in computer science or a related field.</p>
         <p>I am always open to learn and try new things, especially when it pertains to programming.  Wether it be learning a new language or starting a brand new project, I am always trying to improve my portfolio and skills, hence one of my main reasons for making this website.</p>
-        <p>I will use this website as a way to communicate with the world of what my past and current projects are.  Hopefully, I will update it as frequently as I can, college can be busy at sometimes though.</p>
+        <p>I will use this website as a way to communicate with my community of what my past and current projects are.  Hopefully, I will update it as frequently as I can, college can be busy at sometimes though.</p>
         <h3 style={{ margin: 0, padding: 0, marginBottom: '20px' }}>Current Project</h3>
-        <p>My current project is my first research project.  I am working with one of my University's professors, Dr.Kahnal.  I am using SQL and Python to preform data analysis on the US Housing Market.  More information can be found on the research page of this very website.</p>
+        <p>Since the conclusion of my very first research project last academic year.  I am now thinking of what to develop next, maybe some kind of personal project or getting into more research soon.</p>
       </section>
       <section id="organizations" className="organizations-section" style={{ maxWidth: '800px', backgroundColor: '#f0f0f0', color: 'black', padding: '20px' }}>
         <h2 style={{ margin: 0, padding: 0, marginBottom: '20px' }}>On-Campus Organizations</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
           <div className="organization">
-            <img src="/MountainCatEsportslogo.png" alt="Logo 1" style={{ width: '100%', borderRadius: '10%' }}/>
+            <img src={process.env.PUBLIC_URL + "/Ecac.png"} alt="Logo 1" style={{ width: '100%', borderRadius: '10%' }}/>
             <p>Varsity Valorant Esports Team Member</p>
           </div>
           <div className="organization">
-            <img src="/Bajalogo.png" alt="Logo 2" style={{ width: '100%', borderRadius: '10%' }}/>
-            <p>Baja Club Team Member</p>
-          </div>
-          <div className="organization">
-            <img src="/SWElogo.png" alt="Logo 3" style={{ width: '100%'}}/>
-            <p>Society of Women Engineers Events Coordinator</p>
-          </div>
-          <div className="organization">
-            <img src="/ChemElogo.png" alt="Logo 4" style={{ width: '100%', borderRadius: '10%' }}/>
-            <p>Chem-E Car Team Member</p>
+            <img src={process.env.PUBLIC_URL+"/ComputerScienceClub.png"} alt="Logo 4" style={{ width: '56%', borderRadius: '10%' }}/>
+            <p>Computer Science Club Member</p>
           </div>
         </div>
       </section>

@@ -158,14 +158,8 @@ a.after-github {
   background-color: white; /* Change this to the color you want */
 }
 
-.progress-bar {
-  width: 100%;
-  background-color: #f3f3f3;
-}
-
-.progress-bar-fill {
-  height: 20px;
-  background-color: #DAA520;
+.center-text {
+  text-align: center;
 }
 
 .logo-bar img {
