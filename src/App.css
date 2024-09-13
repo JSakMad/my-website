@@ -3,6 +3,7 @@
   top: 0;
   width: 100%;
   display: flex;
+  z-index: 1000;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -63,32 +64,136 @@
   color: white;
 }
 
+.projects-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
 
-
-.dropdown {
+.project-box {
   position: relative;
-  display: inline-block;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
-.dropdown-content {
-  display: none;
+.project-box img {
+  width: 100%;
+  height: auto;
+}
+
+.project-box:hover {
+  border-color: #DAA520; /* Change this to your desired hover border color */
+  cursor: pointer;
+}
+
+.project-name {
   position: absolute;
-  min-width: 200px; /* Adjust this value as needed */
-  background-color: rgb(66, 60, 228); /* This line adds a background box to the dropdown menu */
-  box-shadow: 0px 8px 16px 0px #DAA520;
-  z-index: 1;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+.project-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%; /* Increase the width */
+  max-width: 800px; /* Increase the max-width */
+  background-color: white;
+  border: 2px solid #DAA520;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  padding: 10px; /* Reduce padding to make it less tall */
+  display: none; /* Initially hidden */
+}
+
+.project-popup.active {
+  display: block; /* Show when active */
+}
+
+.project-popup * {
+  margin: 0;
+  padding: 0;
+}
+
+.project-popup .popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px; /* Adjust padding to reduce space at the top */
+}
+
+.project-popup .popup-header h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.project-popup .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.project-popup .github-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
   text-decoration: none;
-  display: block;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+.project-popup .github-btn:hover {
+  background-color: #555;
 }
+
+.project-popup .site-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.project-popup .site-btn:hover {
+  background-color: #0056b3;
+}
+
+/* New styles for the popup header */
+.project-popup .popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px 10px 0; /* Adjust padding to reduce space at the top */
+}
+
+.project-popup .popup-header h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.project-popup .popup-header .close-btn {
+  top: 10px; /* Adjust this value as needed */
+  right: 10px; /* Adjust this value as needed */
+  cursor: pointer;
+}
+
+
 
 .interests-section {
   padding: 20px;
@@ -125,19 +230,6 @@
   padding: 3px 10px;
   width: 50%; /* Adjust this value as needed */
   margin: auto;
-}
-
-
-.ai-emotion-detector-section {
-  padding: 20px;
-  background-color: black; /* Add this line */
-  color: white; /* Add this line */
-}
-
-.placeholder-section {
-  padding: 20px;
-  background-color: black; /* Add this line */
-  color: white; /* Add this line */
 }
 
 a.after-linkedin {
@@ -269,7 +361,6 @@ input[type="submit"] {
   flex: 1;
 }
 
-/* CSS */
 nav a.active {
   color: #f0f0f0; /* change this to the highlight color you want */
 }

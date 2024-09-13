@@ -1,16 +1,88 @@
-import React from 'react';
-import { Link as ScrollLink } from "react-scroll";
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
-// Import your components here
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Link as ScrollLink } from 'react-scroll';
+
+
+function Projects() {
+  const projects = [
+    { name: 'Research Project', imgSrc: process.env.PUBLIC_URL + '/PittResearchLogo.jpg', description: 'At the beginning of 2023\'s fall semester I heard from my friend Rupesh that Dr. Rajendra Kahnal about wanting to do research in computer science.  I then reached out to him, picked a topic, and began finding data to analyze.  I chose to research something in relation to finance and the economy as I find it quite intresting and one of those might be my second major.  The dataset we chose was Redfin\'s US Housing Market data.  It is quite large dataset several different aspects of the market.  We chose to look at the data by state and then at the individual zip codes of the state of Pennsylvania.  The maps (both state and zip code) progress from 2019->2021->2023.  The graph is of the cumulative month to month change of the market in its adjusted value.  Used pandas to clean the data, removing null and skewed values.  Filtered the data based on year using pandas.  Created graphs and maps with matplotlib and geopandas.', githubLink: 'https://github.com/JSakMad/HousingMarketResearch' },
+    { name: 'AI-Emotion Detector', imgSrc: process.env.PUBLIC_URL + '/MachineLearningimage.jpg', description: 'This is a project about artificial intelligence and machine learning. I looked for ideas, a lot of them were about analyzing traffic and such which I didn\'t find too interesting. I wanted to tell what emotion someone would have based on their facial expression. The dataset I used was from Kaggle. Once trained, the machine accesses a camera of some kind, typically a webcam, and then scans the frame for a face and draws a box around it if there is one. It then compares the face it sees in the box with the several expressions that it has been trained to recognize and places its prediction accuracy and emotion name below the box. Made with Python and the libraries used were OpenCV, TensorFlow, and numpy. I used TensorFlow to train the model and OpenCV to access the webcam. Should be on GitHub soon.'},
+    { name: 'This Website', imgSrc: process.env.PUBLIC_URL + '/NEWWebsiteimage.jpg', description: 'This website is probably my biggest project, in terms of new concepts I have learned. As I apply for internships, I see places for a portfolio website to be linked so I made one. This is my longest ongoing project and I will try to update it with new projects and skills as I create/learn them. Before making this, I was nearly completely new to web development, so it has been quite the learning process. It uses the React framework, JavaScript to define the operations/layout, and CSS for visuals. Date of creation is October 2023. I look forward to updating this website with newer content when I start landing internships.', githubLink: 'https://github.com/JSakMad/my-website', siteLink: 'https://jsakmad.github.io/my-website/' },
+    { name: 'Codel', imgSrc: process.env.PUBLIC_URL + '/CodelLogo.png', description: 'An open source wordle-like code solving game played in the browser. It is web-based and made using JavaScript, HTML, and CSS. I used GitHub pages to set it up. I plan on adding new modes and difficulties soon when I find more time.', githubLink: 'https://github.com/JSakMad/Codel', siteLink: 'https://jsakmad.github.io/Codel/' }
+  ];
+
+  const [activeProject, setActiveProject] = useState(null);
+
+  const openPopup = (project) => {
+    setActiveProject(project);
+  };
+
+  const closePopup = () => {
+    setActiveProject(null);
+  };
+
+  return (
+    <section id="projects" className="projects-section">
+      {projects.map((project, index) => (
+        <div key={index} className="project-box" onClick={() => openPopup(project)}>
+          <img src={project.imgSrc} alt={project.name} />
+          <div className="project-name">{project.name}</div>
+        </div>
+      ))}
+
+      {activeProject && (
+        <div className="project-popup active">
+          <div className="close-btn" onClick={closePopup}>
+            <FontAwesomeIcon icon={faTimes} />
+          </div>
+          <h2>{activeProject.name}</h2>
+          <p>{activeProject.description}</p>
+          {activeProject.name === 'Research Project' && (
+            <Carousel showThumbs={false} autoPlay interval={2000} infiniteLoop>
+              <div>
+                <img src={process.env.PUBLIC_URL + "/Statemap2019.png"} alt="Statemap2019" style={{ width: '65%', height: 'auto', margin: '0 auto' }} />
+              </div>
+              <div>
+                <img src={process.env.PUBLIC_URL + "/Statemap2021.png"} alt="Statemap2021" style={{ width: '65%', height: 'auto', margin: '0 auto' }} />
+              </div>
+              <div>
+                <img src={process.env.PUBLIC_URL + "/Statemap2023.png"} alt="Statemap2023" style={{ width: '65%', height: 'auto', margin: '0 auto' }} />
+              </div>
+              <div>
+                <img src={process.env.PUBLIC_URL + "/Zipcodemap2019.png"} alt="Zipcodemap2019" style={{ width: '65%', height: 'auto', margin: '0 auto' }} />
+              </div>
+              <div>
+                <img src={process.env.PUBLIC_URL + "/Zipcodemap2021.png"} alt="Zipcodemap2021" style={{ width: '65%', height: 'auto', margin: '0 auto' }} />
+              </div>
+              <div>
+                <img src={process.env.PUBLIC_URL + "/Zipcodemap2023.png"} alt="Zipcodemap2023" style={{ width: '65%', height: 'auto', margin: '0 auto' }} />
+              </div>
+              <div>
+                <img src={process.env.PUBLIC_URL + "/Month%20to%20Month%20Cumulative%20Price%202019-2023.png"} alt="Month to Month Cumulative Price 2019-2023" style={{ width: '65%', height: 'auto', margin: '0 auto' }} />
+              </div>
+            </Carousel>
+          )}
+          <a href={activeProject.githubLink} className="github-btn" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faGithub} /> GitHub
+          </a>
+          {activeProject.siteLink && (
+            <a href={activeProject.siteLink} className="site-btn" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faGithub} /> Visit Site
+            </a>
+          )}
+        </div>
+      )}
+    </section>
+  );
+}
 
 function App() {
-  // Define your projects
-  const projects = ['AI-Emotion-Detector', 'This Website'];
-
   // State to track the active section
   const [activeSection, setActiveSection] = useState('');
 
@@ -20,72 +92,29 @@ function App() {
         <h1>Joshua Sakolsky-Madaras</h1>
         <nav>
           <ScrollLink activeClass="active" to="about" spy={true} smooth={true} offset={-60} duration={500} onSetActive={setActiveSection}>About</ScrollLink>
-          <ScrollLink activeClass="active" to="research" spy={true} smooth={true} offset={-60} duration={500} onSetActive={setActiveSection}>Research</ScrollLink>
           <ScrollLink activeClass="active" to="skills" spy={true} smooth={true} offset={-60} duration={500} onSetActive={setActiveSection}>Skills</ScrollLink>
-          <div className="dropdown">
-            {/* Replace this ScrollLink */}
-            <ScrollLink 
-              className={projects.includes(activeSection) ? 'active' : ''} 
-              to={projects[0]} // Scroll to the first project
-              spy={true} 
-              smooth={true} 
-              offset={-60} 
-              duration={500}
-              onSetActive={setActiveSection}
-            >
-              Projects
-            </ScrollLink>
-            <div className="dropdown-content">
-              {projects.map(project => (
-                <ScrollLink 
-                  key={project}
-                  activeClass="active" 
-                  to={project} 
-                  spy={true} 
-                  smooth={true} 
-                  offset={-60} 
-                  duration={500}
-                  onSetActive={setActiveSection}
-                >
-                  {project}
-                </ScrollLink>
-              ))}
-            </div>
-          </div>
+          <ScrollLink activeClass="active" to="projects" spy={true} smooth={true} offset={-60} duration={500} onSetActive={setActiveSection}>Projects</ScrollLink>
           <ScrollLink className="contact" activeClass="active" to="contact" spy={true} smooth={true} offset={-59} duration={500} onSetActive={setActiveSection}>Contact</ScrollLink>
         </nav>
       </header>
       <section id="about">
-        {/* Your About component */}
         <About />
-        {/* Your LogoBar component */}
         <LogoBar />
-        {/* Your Introduction component */}
         <Introduction />
       </section>
-      <section id="research">
-        {/* Your Research component */}
-        <Research />
-      </section>
       <section id="skills">
-        {/* Your SkillsBar component */}
         <SkillsBar />
       </section>
-      <section id="AI-Emotion-Detector">
-        {/* Your AIEmotionDetector component */}
-        <AIEmotionDetector />
-      </section>
-      <section id="This Website">
-        {/* Your Placeholder component */}
-        <Placeholder />
+      <section id="projects">
+        <Projects />
       </section>
       <section id="contact">
-        {/* Your Contact component */}
         <Contact />
       </section>
     </div>
   );
 }
+
 
 function LogoBar() {
   return (
@@ -141,34 +170,6 @@ function About() {
             <FontAwesomeIcon icon={faEnvelope} size="2x" color="#DAA520" />
           </div>
         </a>
-      </div>
-    </section>
-  );
-}
-
-function Research() { 
-  return (
-    <section id="research" className="research-section" style={{ maxWidth: '1500px', backgroundColor: '#DAA520', color: 'rgb(66, 60, 228)', padding: '20px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div>
-        <h2 style={{ margin: 0, padding: 0, marginBottom: '20px' }}>My Research</h2>
-        <p>At the beginning of 2023's fall semester I heard from a friend that Dr. Rajendra Kahnal spoke of his intrest about wanting to do research in relation to computer science.  I then reached out to him, picked a topic, and began finding data to analyze.  I wanted to research something in relation to the economy as I find finance and buisness quite intresting and am planning for one of those as my second major.</p>
-    <p>The dataset we ended up settling on was Redfin's 2023 US housing Market dataset.  It is quite a large dataset with several different magnifications on the US housing market.  The ones we chose to look at were the one divided by state and then specifically at the zip codes of my home state of Pennsylvania.</p>
-    <p>The maps found in the presentation on the right are made by using a GEOjson file of the US and Pennsylvania zip codes respecitvely and then mapping the normalized values to each state or zip code.  Higher value=lighter color=more expensive.  The maps, 3 of both kinds are in order of 2019, 2021, and 2023 respecitvely.</p>
-    <p>The two graphs after the maps are analysis of the US housing market as a whole and is a graph of the cumulative month to month change of the market in its adjusted value.</p>
-    <p>I used the pandas library to clean the data, getting rid of the null values and outliers which would skew the data.  I also used pandas to filter the data based on year.  The graphs were made with matplot.</p>
-        </div>
-        <div>
-          <div id="carousel" style={{ width: '800px', height: '450px', overflow: 'hidden', padding: '20px' }}>
-          <img src={process.env.PUBLIC_URL + "/Statemap2019.png"} alt="Statemap2019" style={{ width: '100%', height: '100%' }}/>
-<img src={process.env.PUBLIC_URL + "/Statemap2021.png"} alt="Statemap2021" style={{ width: '100%', height: '100%' }}/>
-<img src={process.env.PUBLIC_URL + "/Statemap2023.png"} alt="Statemap2023" style={{ width: '100%', height: '100%' }}/>
-<img src={process.env.PUBLIC_URL + "/Zipcodemap2019.png"} alt="Zipcodemap2019" style={{ width: '100%', height: '100%' }}/>
-<img src={process.env.PUBLIC_URL + "/Zipcodemap2021.png"} alt="Zipcodemap2021" style={{ width: '100%', height: '100%' }}/>
-<img src={process.env.PUBLIC_URL + "/Zipcodemap2023.png"} alt="Zipcodemap2023" style={{ width: '100%', height: '100%' }}/>
-<img src={process.env.PUBLIC_URL + "/Month%20to%20Month%20Cumulative%20Price%202019-2023.png"} alt="Month to Month Cumulative Price 2019-2023" style={{ width: '100%', height: '100%' }}/>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -264,46 +265,6 @@ class Contact extends React.Component {
       </section>
     );
   }
-}
-
-function AIEmotionDetector() { 
-  return (
-    <section id="ai-emotion-detector" className="ai-emotion-detector-section" style={{ maxWidth: '1500px', backgroundColor: '#DAA520', color: 'rgb(66, 60, 228)', padding: '20px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div style={{ maxWidth: '60%' }}> {/* Limit the width of the text container */}
-          <h2 style={{ margin: 0, padding: 0, marginBottom: '20px' }}>AI-Emotion-Detector</h2>
-          <p>This project was made when I was very intrested in artifical intelligence and machine learning.  I looked for ideas, alot of them were about analyzing traffic and such which I didn't find too interesting.  I ended up landing on trying to tell what emotion someone would have based on thier facial expression.</p>
-          <p>I made this one while in highschool so it isn't very advanced but it did serve as a good introduction into machine learning for me, which is one of my main intrests.</p>
-          <p>The data set I used for facial expressions was found on kaggle, where alot of good data sets for projects such as this one can be found.  I used a old microsoft surface to make the code and train the machine so it took far longer than it should have.</p>
-          <p>Once trained the machine accsesses a camera of some kind, usually a webcam, and then scans the frame for a face and draws a box around it.  It then compares the face it sees in the box with the several expressions that it has been trained to recognize and places its prediction accuracy and emotion name below the box.</p>
-          <p>The language I used was Python and the libraries I used were cv, tensorflow, and numpy.  I used tensorflow to train the model and cv to access the webcam.  This project should be able to be found on my github if you would like to see exactly how I did it.</p>
-          <p></p>
-        </div>
-        {/* Add your image here */}
-        <img src={process.env.PUBLIC_URL + "/MachineLearningimage.jpg"} alt="AI Generated Graphic" style={{ width: '25%', height: 'auto' }} />
-      </div>
-      <hr style={{ borderColor: 'rgb(66, 60, 228)', width: '100%', marginTop: '20px', marginBottom: '-20px'  }} /> {/* Add this line */}
-    </section>
-  );
-}
-
-function Placeholder() { 
-  return (
-    <section id="placeholder" className="placeholder-section" style={{ maxWidth: '1500px', backgroundColor: '#DAA520', color: 'rgb(66, 60, 228)', padding: '20px'}}>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div style={{ maxWidth: '60%' }}> {/* Limit the width of the text container */}
-          <h2 style={{ margin: 0, padding: 0, marginBottom: '20px' }}>This Website</h2>
-          <p>This website is probably my biggest project, in terms of new concepts I have learned, I have made yet, it is currently near the end of 2023.  As I am applying for many internships this year, I kept seeing places for a portfolio website to be linked so I decided to make one.</p>
-          <p>This will probably my longest ongoing project as well as I will try to update it with new projects I create and skills I learn.  Before making this, I was nearly completely new to web development so it has been a journey in creating this.</p>
-          <p>I heard that React was quite easy to work with so I decided to use that to create this.  I also used javascript to define the functions, how it operants, and the layout as such and CSS for making the colors look coordinated and making the website themeatically sound.</p>
-          <p>Date of creation is October 2023.  I look forward to updating this website with newer content and may add new sections at some point when I start landing internships or jobs, as that will be my primary focus now.</p>
-          <p>Yes this website is colored off of Pitt's colors but I will update them if I do transfer Universities or to a company's after I graduate.</p>
-        </div>
-        {/* Add your image here */}
-        <img src={process.env.PUBLIC_URL+ "/NEWWebsiteimage.jpg"} alt="AI Generated Graphic" style={{ width: '25%', height: 'auto' }} />
-      </div>
-    </section>
-  );
 }
 
 function Introduction() {
