@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/my-website/static/css/main.f7077601.css",
+    "main.js": "/my-website/static/js/main.4b9e1c81.js",
+    "static/js/453.430cf63b.chunk.js": "/my-website/static/js/453.430cf63b.chunk.js",
+    "static/media/Pittsburgh.jpg": "/my-website/static/media/Pittsburgh.3804d492662d96b9e147.jpg",
+    "static/media/world.svg": "/my-website/static/media/world.12e67072f113559961f4.svg",
+    "index.html": "/my-website/index.html",
+    "main.f7077601.css.map": "/my-website/static/css/main.f7077601.css.map",
+    "main.4b9e1c81.js.map": "/my-website/static/js/main.4b9e1c81.js.map",
+    "453.430cf63b.chunk.js.map": "/my-website/static/js/453.430cf63b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f7077601.css",
+    "static/js/main.4b9e1c81.js"
+  ]
+}
