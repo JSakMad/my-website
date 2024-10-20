@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/my-website/static/css/main.008b39f2.css",
+    "main.css": "/my-website/static/css/main.5e836227.css",
     "main.js": "/my-website/static/js/main.bf5a0fa9.js",
     "static/js/453.430cf63b.chunk.js": "/my-website/static/js/453.430cf63b.chunk.js",
     "static/media/Pittsburgh.jpg": "/my-website/static/media/Pittsburgh.3804d492662d96b9e147.jpg",
     "static/media/world.svg": "/my-website/static/media/world.12e67072f113559961f4.svg",
     "index.html": "/my-website/index.html",
-    "main.008b39f2.css.map": "/my-website/static/css/main.008b39f2.css.map",
+    "main.5e836227.css.map": "/my-website/static/css/main.5e836227.css.map",
     "main.bf5a0fa9.js.map": "/my-website/static/js/main.bf5a0fa9.js.map",
     "453.430cf63b.chunk.js.map": "/my-website/static/js/453.430cf63b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.008b39f2.css",
+    "static/css/main.5e836227.css",
     "static/js/main.bf5a0fa9.js"
   ]
 }
